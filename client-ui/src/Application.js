@@ -21,6 +21,7 @@ class Application extends Component {
   }
 
   componentDidMount() {
+    console.log('on did mount')
     // Try to authenticate with the JWT stored in localStorage
     let lastEmail = localStorage.getItem('email');
     if(lastEmail) {

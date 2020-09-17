@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import client from './feathers';
 import _ from 'lodash';
-import Avatar from "./avatar";
+import Avatar from "./Avatar";
 import {emojis, isEmoji, findEmojis} from './../../server/src/emojis';
 
 const sleep = async time => new Promise(r => setTimeout(r, time));

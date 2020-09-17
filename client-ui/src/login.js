@@ -33,7 +33,7 @@ export default class Login extends Component {
 
       document.body.classList.add('user-authenticated');
       document.body.classList.remove('user-unknown');
-      console.log("Login with user", user)
+      // console.log("Login with user", user)
     } catch(error) {
       this.setState({ error })
     }

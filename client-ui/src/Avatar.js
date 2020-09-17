@@ -1,17 +1,32 @@
 import React, {Component} from "react";
+import seedrandom from 'seedrandom'
 import client from "./feathers";
 
 const name = (user) => user.email.split('@')[0]
 
-export default class Avatar extends Component {
-  static getUserColor(id) {
-    let [h, s, l] = [
-      Number.parseInt(id.slice(0, 2), 16) / 256 * 365,
-      Number.parseInt(id.slice(2, 4), 16) / 256 * 100,
-      Number.parseInt(id.slice(4, 6), 16) / 256 * 100
-    ];
+const colors = [
+  '#3FB9B1',
+  '#3E9DEC',
+  '#FC5E4C',
+  '#FFD333',
+  '#FF903B'
+]
 
-    return `hsl(${h},${s / 2 * 1 + 30}%,${l / 4 + 55}%)`;
+export default class Avatar extends Component {
+
+  static getUserColor(id) {
+    // console.log(seedrandom(id)())
+    const number = Math.floor(seedrandom(id)() * 5);
+    console.log('on number', number)
+    return colors[number]
+    // let [h, s, l] = [
+    //   Number.parseInt(id.slice(0, 2), 16) / 256 * 365,
+    //   Number.parseInt(id.slice(2, 4), 16) / 256 * 100,
+    //   Number.parseInt(id.slice(4, 6), 16) / 256 * 100
+    // ];
+
+    // return `hsl(${h},${s / 2 * 1 + 30}%,${l / 4 + 55}%)`;
+
   }
 
   render() {
@@ -23,9 +38,9 @@ export default class Avatar extends Component {
     let avatarUrl = user.avatar;
     
     //TODO: Uncomment for development
-    // if(avatarUrl && avatarUrl.startsWith('/avatars')) {
-    //   avatarUrl = `${window.socketUri}${avatarUrl}`
-    // }
+    if(avatarUrl && avatarUrl.startsWith('/avatars')) {
+      avatarUrl = `${window.socketUri}${avatarUrl}`
+    }
 
     const colA = Avatar.getUserColor(user.id);
 

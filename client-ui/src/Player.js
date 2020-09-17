@@ -5,8 +5,10 @@ import _ from "lodash";
 
 // To ensure each page reload gets a unique new stream url
 const uniqueCacheBuster = new Date().valueOf();
-const url = "https://warro.online/radio/8000/radio.mp3?"+uniqueCacheBuster;
 
+// change this
+const url = "https://warro.online/radio/8040/radio.mp3?"+uniqueCacheBuster;
+// console.log('herehere')
 export default class Player extends Component {
   constructor(props) {
     super(props);
@@ -26,6 +28,7 @@ export default class Player extends Component {
   }
 
   componentDidMount() {
+    console.log('did mount')
     this.fetchNowPlaying();
 
     this.audio.addEventListener('playing', this.onAudioPlaying);
@@ -41,7 +44,7 @@ export default class Player extends Component {
   }
 
   async fetchNowPlaying() {
-    let url = 'https://warro.online/api/nowplaying/1';
+    let url = 'https://warro.online/api/nowplaying/5';
     let res = await fetch(url);
 
     let jsonRes = await res.json();

@@ -6,7 +6,7 @@ import Linkify from 'react-linkify';
 
 import client from './feathers';
 import {findEmojis} from './../../server/src/emojis';
-import Avatar from "./avatar";
+import Avatar from "./Avatar";
 
 const name = (user) => (user.email || "").split('@')[0]
 

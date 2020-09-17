@@ -9,6 +9,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-linkify": "^1.0.0-alpha",
+    "seedrandom": "^3.0.5",
     "socket.io-client": "^1.7.3",
     "unorm": "^1.6.0"
   },

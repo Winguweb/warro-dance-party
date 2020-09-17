@@ -12,7 +12,7 @@ class DanceFloor extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      logo: 'w',
+      logo: 'big-logo',
     };
 
     this.onAuthenticated = this.onAuthenticated.bind(this);
@@ -23,10 +23,10 @@ class DanceFloor extends Component {
   }
 
   onMetadataUpdate(metadata) {
-    let logo = 'w';
-    if (metadata.live && (metadata.live.streamer_name || '').match(/joya/i)) {
-      logo = 'joya';
-    }
+    let logo = 'big-logo';
+    // if (metadata.live && (metadata.live.streamer_name || '').match(/joya/i)) {
+    //   logo = 'joya';
+    // }
 
     if (this.state.logo !== logo) {
       this.setState({logo})
@@ -56,8 +56,7 @@ class DanceFloor extends Component {
 
       {this.props.connected ?
         <div className="logo-container">
-          <div className={`logo ${logoName} clone`}/>
-          <div className={`logo ${logoName}`}/>
+          <div className={`logo`}/>
         </div>
         : <div className="logo-container">
           <div className={'connecting text-white'}>Conectando...</div>

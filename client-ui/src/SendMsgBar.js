@@ -5,9 +5,9 @@ import React, {Component} from 'react';
 import Linkify from 'react-linkify';
 
 import client from './feathers';
-import Player from './player';
+import Player from './Player';
 import {emojis, findEmojis} from './../../server/src/emojis';
-import Avatar from "./avatar";
+import Avatar from "./Avatar";
 import OnlineUsersWithReactions from "./OnlineUsersWithReactions";
 
 const name = (user) => (user.email || "").split('@')[0]
@@ -237,7 +237,7 @@ class SendMsgBar extends Component {
           <input autoFocus={true}
                  className={"d-flex flex1-1 form-control shadow-sm"}
                  value={this.state.message || ""}
-                 placeholder={"Escribí acá...   (poné :NOMBRE para emoji)"}
+                 placeholder={"Escribir un mensaje"}
                  onKeyDown={(e) => this.keyPressedHandler(e)}
                  onChange={e => this.inputChange(e.target.value)}
                  type="text"
@@ -252,10 +252,17 @@ class SendMsgBar extends Component {
               </button> : null
           }
 
-          <button className="btn btn-sm btn-dark ml-2 p-0 shadow-sm"
+          <button className="emoji-button"
                   style={{fontSize: '24px'}}
                   onClick={() => this.sendMessage(defaultEmoji)}
-                  onMouseDown={dontTakeFocus}>❤️
+                  onMouseDown={dontTakeFocus}>
+                    <div className='heart-container'></div>
+          </button>
+          <button className="btn btn-sm btn-dark ml-2 p-0"
+                  style={{fontSize: '24px'}}
+                  onClick={() => this.sendMessage()}
+                  onMouseDown={dontTakeFocus}><div className='gps'></div>
+
           </button>
         </div>
       </div>;

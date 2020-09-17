@@ -1,10 +1,11 @@
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Barlow", sans-serif;
 }
 
 html, body, body > div {
-  background: #0c0c19;
-  background:linear-gradient(415deg, #242440 10%, #0c0c19 100%);
+  // background: #0c0c19;
+  // background:linear-gradient(415deg, #242440 10%, #0c0c19 100%);
+  background: #132C41;
 }
 
 @mobile-width: 768px;
@@ -83,14 +84,14 @@ html, body, body > div {
   }
 }
 
-.send-msg-bar input,
-.login input {
-    border: 3px solid #384363;
+.send-msg-bar input {
+    border: none;
+    border-radius: 0% !important;
+    // border-top: 1px solid #8692AF;
     background: none;
     font-size: .875rem;
     line-height: 1.5rem;
-    padding: 1.1rem 1rem;
-    border-radius: 20px;
+    padding: 1.5rem 0.5rem;    
     flex: 1;
     color: #fff;
     box-shadow: none !important;
@@ -98,9 +99,37 @@ html, body, body > div {
     -webkit-appearance: none;
 }
 
-.send-msg-bar input:focus,
+#send-message {
+  border-top: 1px solid #8692AF;
+  padding: 0.5rem 0;
+  border-radius: 0% !important;
+}
+
+.login input {
+  border: none;
+  border-radius: 0% !important;
+  border-bottom: 1px solid #8692AF;
+  background: none;
+  font-size: .875rem;
+  line-height: 1.5rem;
+  padding: 1.1rem 0.5rem;    
+  flex: 1;
+  color: #fff;
+  box-shadow: none !important;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.send-msg-bar input:focus {
+  background: transparent;
+  border-color: #8692AF;
+  color: #fff;
+}
+
 .login input:focus {
+  background: transparent;
   border-color: #fff;
+  color: #FFF;
 }
 .send-msg-bar input::placeholder,
 .login input::placeholder {
@@ -113,9 +142,8 @@ html, body, body > div {
   display: none;
 }
 
-.send-msg-bar .btn,
 .login .btn {
-  background: #0664FF;
+  background: #3FB9B1;
   border: none;
   border-radius: 20px;
   display: inline-block;
@@ -123,7 +151,27 @@ html, body, body > div {
   height: 40px;
   color: #fff;
   margin-left: 10px;
-  box-shadow: 0px 3px 8px rgba(6, 100, 255, 0.5);
+  // box-shadow: 0px 3px 8px rgba(6, 100, 255, 0.5);
+  cursor: pointer;
+}
+
+.emoji-button {
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+}
+
+.send-msg-bar .btn {
+  background: #3E9DEC;
+  border: none;
+  border-radius: 20px;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  margin-left: 10px;
+  // box-shadow: 0px 3px 8px rgba(6, 100, 255, 0.5);
   cursor: pointer;
 }
 
@@ -131,7 +179,7 @@ html, body, body > div {
 .login .btn:hover,
 .send-msg-bar .btn:focus,
 .login .btn:focus {
-  background: #2175FF;
+  background: #3FB9B1;
 }
 .send-msg-bar .btn-react,
 .login .btn-react {
@@ -156,6 +204,24 @@ html, body, body > div {
   width: 300px;
   margin-left: -150px;
   z-index: 1;
+}
+
+.gps {
+  background: url(../public/gps.svg) no-repeat;
+  background-position: center center;
+  background-size: 20px;
+  height: 40px;
+}
+
+.heart-container {
+  background: url(../public/heart.svg) no-repeat;
+  background-position: center center;
+  background-size: 20px;
+  height: 40px;
+}
+
+.btn-submit {
+  background: #3E9DEC;
 }
 
 .dancefloor {
@@ -197,7 +263,15 @@ html, body, body > div {
   }
 
   .logo-container {
-    .positionMandala();
+    .positionMandala();    
+    display: flex;
+    justify-content: center;
+    
+    .logo {
+      background: url(../public/big-logo.svg) no-repeat;
+      background-position: center center;
+      background-size: 80vh 40vw;
+    }
   }
 
   .online-users{
@@ -340,10 +414,10 @@ html, body, body > div {
       }
 
       .song-title {
-        color: #4d5773;
+        color: white;
         em {
           font-style: normal;
-          color: #727D9F;
+          color: white;
         }
       }
 
@@ -355,11 +429,12 @@ html, body, body > div {
         top: -2px;
         margin-left: 10px;
         margin-right: 0 !important;
+        background: #FC5E4C !important;
       }
 
       .text-secondary {
         font-size: .6em;
-        color: #C1CAE1 !important;
+        color: white !important;
         white-space: nowrap;
         overflow: hidden;
         display: block;
@@ -401,46 +476,54 @@ html, body, body > div {
       color: #AAA;
     }
     .listeners {
-      color: #91A0CC !important;
+      color: white !important;
       font-size: 12px;
       text-transform: uppercase;
     }
   }
 
   .logo {
-    position: absolute;
+    // position: absolute;
     left: 50%;
     top: 50%;
-    margin-left: -120px;
-    margin-top: -120px;
-    height: 240px;
-    width: 240px;
+    // margin-left: -160px;
+    // margin-top: -168px;
+    height: 80vh;
+    width: 40vw;
     overflow: auto;
 
-    &.clone {
-      background: white;
-      animation: wave 1s infinite ease-in-out forwards;
-      animation-delay: 0.7s;
-    }
+    // &.clone {
+    //   background: white;
+    //   animation: wave 1s infinite ease-in-out forwards;
+    //   animation-delay: 0.7s;
+    // }
   }
+  
 
   .w {
     background: url(../public/doblevreal.svg) no-repeat;
     background-position: center center;
-    &.clone {
-      background: url(../public/doblevreal.svg) no-repeat;
-      background-position: center center;
-    }
+    background-size: 250px 400px;
+    // &.clone {
+    //   background: url(../public/doblevreal.svg) no-repeat;
+    //   background-position: center center;
+    // }
   }
+
+  // .big-logo {
+  //   background: url(../public/big-logo.svg) no-repeat;
+  //   background-position: center center;
+  //   background-size: 250px 400px;
+  // }
 
   .joya {
     background: url(../public/lajoya.svg) no-repeat;
     background-position: center center;
 
-    &.clone {
-      background: url(../public/lajoya.svg) no-repeat;
-      background-position: center center;
-    }
+    // &.clone {
+    //   background: url(../public/lajoya.svg) no-repeat;
+    //   background-position: center center;
+    // }
   }
 
   .connecting {
@@ -475,7 +558,7 @@ html, body, body > div {
       font-size: 24px;
       cursor: pointer;
       &:hover {
-        background: #2175FF;
+        background: #3FB9B1;
         border-radius: 5px;
       }
     }
@@ -505,10 +588,10 @@ html, body, body > div {
 
     .btn-secondary {
       font-size: 13px;
-      font-weight: bold;
       background: none;
-      border: 3px solid #2175FF;
-      color: #fff;
+      font-weight: 300;
+      border: 3px solid #3FB9B1;
+      color: #3FB9B1;
       border-radius: 20px;
       padding: .5em 1.5em;
       text-transform: uppercase;
@@ -556,11 +639,15 @@ html, body, body > div {
 
       .message-wrapper {
         display: inline-block;
-        background: #38436345;
-        border-radius: 20px;
-        padding: .5em .75em .35em .75em;
+        position: relative;
+        background: #4F5B75;
+        border-radius: 0 14px 14px 14px;
+        padding: .5em 2em .5em .75em;
         line-height: 1em;
-        margin-right: 3em;
+        // padding-right: 2rem;
+        // padding: 1rem 2rem
+        margin-bottom: 1rem;
+        // margin-right: 3em;
 
         &.mentions-me {
           background: #384363;
@@ -576,7 +663,7 @@ html, body, body > div {
             height: 8px;
             text-align: center;
             border-radius: 50%;
-            background: #2175FF;
+            background: #3FB9B1;
           }
         }
         .mention-span {
@@ -609,7 +696,9 @@ html, body, body > div {
         &.message-continue { padding-right: 0 !important; }
 
         .message-wrapper {
-          background-color: rgba(33, 117, 255, 0.49);
+          // background-color: rgba(33, 117, 255, 0.49);
+          background: #4F5B75;
+          border-radius: 14px 0 14px 14px;
           margin-left: 3em;
           margin-right: 0;
           padding-top: .6em;
@@ -625,6 +714,7 @@ html, body, body > div {
         word-break: break-word;
         color: #C1CAE1;
         display: inline;
+        padding-top: 1rem;
       }
 
       .avatar {
@@ -640,12 +730,16 @@ html, body, body > div {
         margin: 0px;
       }
       .sent-date {
+        position: absolute;
+        bottom: -15px;
+        right: 7px;
         font-size: 10px;
         color: #C1CAE140;
-        display: inline;
-        margin-top: 5px;
-        margin-left: 5px;
-        float: right;
+        // display: inline;
+        // margin-top: 5px;
+        // margin-left: 5px;
+        // float: right;
+        
       }
     }
     .text-time {
@@ -656,6 +750,15 @@ html, body, body > div {
 
 .user-unknown:not(.user-authenticated) {
   .dancefloor {
+    .logo-container {      
+      .logo { 
+        background: url(../public/doblevreal.svg) no-repeat !important;
+        background-position: center center !important;
+        background-size: 250px 400px !important;
+        height: 160px;
+        width: 260px;
+       }
+    }
     .action-header {
       position: fixed;
       top: 0;
@@ -683,7 +786,7 @@ html, body, body > div {
         width: auto;
         height: auto;
         background-image: none;
-        background-color: #2175FF;
+        background-color: #3FB9B1;
         color: #fff;
         text-transform: uppercase;
         font-weight: 600;
@@ -706,7 +809,7 @@ html, body, body > div {
       &.state-playing {
         .player-btn {
           background: none;
-          border: 3px solid #2175FF;
+          border: 3px solid #3FB9B1;
           .btn-pause {display: block;}
         }
       }
@@ -738,7 +841,7 @@ html, body, body > div {
 
 
 @media(max-width: @mobile-width) {
-  html, body, body > div { background: #0C0C19; }
+  html, body, body > div { background: #132C41; }
   .dancefloor {
     grid-template-rows: min-content auto 40% min-content;
     grid-template-columns: 100%;
@@ -813,6 +916,7 @@ html, body, body > div {
           font-size: 10px;
           border-radius: 3px;
           top: 0;
+          background: #FC5E4C !important;
         }
         .text-secondary {
           font-size: 13px;
@@ -853,7 +957,8 @@ html, body, body > div {
       padding: 0 15px !important;
     }
   }
-  .user-unknown:not(.user-authenticated) {
+  .user-unknown:not(.user-authenticated) {    
+
     .container {
       position: absolute;
       bottom: 0;
@@ -880,6 +985,14 @@ html, body, body > div {
       }
     }
     .dancefloor {
+      // .logo-container {
+      //   background-color: green;   
+      //   // .logo { 
+      //   //   background: url(../public/big-logo.svg) no-repeat !important;
+      //   //   background-position: center center !important;
+      //   //   background-size: 250px 400px !important;
+      //   //  }
+      // }
       .action-header {
         display: block;
         width: auto;
@@ -1038,5 +1151,5 @@ html, body, body > div {
   border-right: black 2px;
 }
 
-@import "./StarsBackground";
+// @import "./StarsBackground";
 @import "./VolumeSlider";

@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import _ from 'lodash'
-import Avatar from "./avatar";
-import Reactions from "./reactions";
+import Avatar from "./Avatar";
+import Reactions from "./Reactions";
 import client from "./feathers";
 import SendMsgBar from "./SendMsgBar";
 
