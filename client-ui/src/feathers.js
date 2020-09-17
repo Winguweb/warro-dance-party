@@ -2,7 +2,7 @@ import io from 'socket.io-client';
 import feathers from '@feathersjs/client';
 
 // let socketUri = window.realtimeChatUri || 'http://local.opinautos.com:3030';
-let socketUri = window.realtimeChatUri || 'http://localhost:3030';
+let socketUri = window.realtimeChatUri || 'https://civic-radio.herokuapp.com';
 console.log(`Using realtime socket at ${socketUri}`);
 window.socketUri = socketUri;
 
