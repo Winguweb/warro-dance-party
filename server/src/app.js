@@ -55,11 +55,11 @@ app.get('/avatars/:id', (req, res) => {
 });
 
 app.get('/agenda', (req, res) => {
-  res.redirect(307, 'https://teamup.com/ks4u2t8nt87a8m2baw');
+  res.redirect(307, 'https://teamup.com/ksv3mx7rd9z5wyo5qr');
 });
 
 app.get('/agenda-admin', (req, res) => {
-  res.redirect(307, 'https://teamup.com/ksekns8wj4coffwxxn');
+  res.redirect(307, 'https://teamup.com/ksv3mx7rd9z5wyo5qr');
 });
 
 app.get('/', (req, res) => {
