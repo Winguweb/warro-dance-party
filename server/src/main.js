@@ -88,4 +88,6 @@ app.use(express.errorHandler({ logger }));
 
 app.hooks(appHooks);
 
+app.set('port', 8080);
+
 module.exports = app;
